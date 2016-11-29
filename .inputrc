@@ -1,5 +1,4 @@
 set editing-mode vi
-"jk": vi-movement-mode
 set show-mode-in-prompt on
 
 set keymap vi-move
@@ -7,3 +6,5 @@ Control-l: clear-screen
 
 set keymap vi-insert
 Control-l: clear-screen
+
+"jk": vi-movement-mode
