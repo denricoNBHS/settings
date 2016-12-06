@@ -63,8 +63,7 @@ set foldlevel=99
 nnoremap <space> za
 
 " Use jk for <Esc> in insert/visual modes
-inoremap jk <Esc>
-vnoremap jk <Esc>  
+noremap! jk <Esc>
 
 " Change folding highlight color
 highlight Folded ctermbg=darkmagenta
@@ -73,10 +72,23 @@ highlight Folded ctermbg=darkmagenta
 highlight Folded ctermfg=white
 
 " Disable arrow keys (!!)
-noremap OA <nop>
-noremap OB <nop>
-noremap OC <nop>
-noremap OD <nop>
+noremap! OA <nop>
+noremap! OB <nop>
+noremap! OC <nop>
+noremap! OD <nop>
 
-" Run current file in Python
-
+" Have shell <command> open the output of the command in a new split buffer
+function! s:ExecuteInShell(command)
+    let command = join(map(split(a:command), 'expand(v:val)'))
+    let winnr = bufwinnr('^' . command . '$')
+    silent! execute ':w'
+    silent! execute  winnr < 0 ? 'vnew ' . fnameescape(command) : winnr . 'wincmd w'
+    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap number
+    silent! execute 'silent %!'. command
+    silent! redraw
+    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>'
+    silent! execute 'wincmd w'
+endfunction
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
+cabbrev shell Shell
