@@ -67,7 +67,7 @@ set foldlevel=99
 nnoremap <space> za
 
 " Use jk for <Esc>
-inoremap jk <Esc>
+noremap jk <Esc>
 
 " Change folding highlight color
 highlight Folded ctermbg=darkmagenta
@@ -75,4 +75,8 @@ highlight Folded ctermbg=darkmagenta
 " Change folding text color
 highlight Folded ctermfg=white
 
-
+" Disable arrow keys (!!)
+noremap OA <nop>
+noremap OB <nop>
+noremap OC <nop>
+noremap OD <nop>
