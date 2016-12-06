@@ -55,10 +55,6 @@ set rnu
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
-" set up .sol files for Python highlighting
-" au BufNewFile,BufRead *.sol set filetype=python
-
-
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -66,8 +62,9 @@ set foldlevel=99
 " Use <spc> for folding
 nnoremap <space> za
 
-" Use jk for <Esc>
-noremap jk <Esc>
+" Use jk for <Esc> in insert/visual modes
+inoremap jk <Esc>
+vnoremap jk <Esc>  
 
 " Change folding highlight color
 highlight Folded ctermbg=darkmagenta
@@ -80,3 +77,6 @@ noremap OA <nop>
 noremap OB <nop>
 noremap OC <nop>
 noremap OD <nop>
+
+" Run current file in Python
+
