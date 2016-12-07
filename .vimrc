@@ -79,7 +79,7 @@ noremap! OC <nop>
 noremap! OD <nop>
 
 " Bind key for running current file in Python
-nnoremap .. :!python<space>%<CR>
+nnoremap .. :w!<CR>!python<space>%<CR>
 
 " Have shell <command> open the output of the command in a new split buffer
 function! s:ExecuteInShell(command)
