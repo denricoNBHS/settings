@@ -73,10 +73,15 @@ highlight Folded ctermbg=darkmagenta
 highlight Folded ctermfg=white
 
 " Disable arrow keys (!!)
-noremap! OA <nop>
-noremap! OB <nop>
-noremap! OC <nop>
-noremap! OD <nop>
+noremap OA <nop>
+noremap OB <nop>
+noremap OC <nop>
+noremap OD <nop>
+inoremap OA <nop>
+inoremap OB <nop>
+inoremap OC <nop>
+inoremap OD <nop>
+
 
 " Bind key for running current file in Python
 nnoremap .. :!python<space>%<CR>
