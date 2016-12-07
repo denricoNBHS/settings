@@ -64,6 +64,7 @@ nnoremap <space> za
 
 " Use jk for <Esc> in insert/visual modes
 noremap! jk <Esc>
+vnoremap jk <Esc> 
 
 " Change folding highlight color
 highlight Folded ctermbg=darkmagenta
@@ -76,6 +77,9 @@ noremap! OA <nop>
 noremap! OB <nop>
 noremap! OC <nop>
 noremap! OD <nop>
+
+" Bind key for running current file in Python
+nnoremap .. :!python<space>%<CR>
 
 " Have shell <command> open the output of the command in a new split buffer
 function! s:ExecuteInShell(command)
